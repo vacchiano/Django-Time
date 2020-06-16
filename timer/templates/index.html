@@ -8,6 +8,15 @@
     <link rel="stylesheet" href="{% static 'css/style1.css' %}">
 </head>
 <body>
-    <h1>Current Time: {{ time }}</h1>
+    <h1 id="clock"></h1> <!-- Uses JS Below -->
+    <h1>Current Time: {{ time }}</h1> <!-- Uses Python in views.py -->
+
+    <script>
+        var today = new Date();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        console.log(today);
+        var displayClock = document.getElementById("clock");
+        displayClock.innerHTML = "Current Time: " + time;
+    </script>
 </body>
 </html>
